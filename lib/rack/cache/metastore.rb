@@ -125,6 +125,7 @@ module Rack::Cache
     def persist_response(response)
       hash = response.headers.to_hash
       hash['X-Status'] = response.status.to_s
+      hash.delete('Set-Cookie')
       hash
     end
 
